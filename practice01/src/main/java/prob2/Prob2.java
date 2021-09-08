@@ -3,18 +3,16 @@ package prob2;
 public class Prob2 {
 	public static void main(String[] args) {
 		/* 코드 작성 */
-		int k = 0;
-		for(int i=1;i<20;i++) {
-			int j = 0;
+		int k = 1;
+		int j;
+		for(int i=0;i<10;i++) {
 			
-				for(j=i;j<11;j++) {
+				for(j=k;j<10+k;j++) {
 					System.out.print(j + " ");
 				}
-				
 			System.out.println("");
-			k=i;
+			k++;
 		}
-		
 		
 	}
 }
