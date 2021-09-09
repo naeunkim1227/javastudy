@@ -25,30 +25,32 @@ public class TV {
 	public void channel(int channel) {
 		if(!power) return;
 		
-		if(channel > 255) {channel = 1; 
-		}else if(channel<1){channel = 255;}
+		if(channel < 1) {channel = 255; 
+		}else if(channel>255){channel = 1;}
 			
 		this.channel = channel;
 	}
 	
 	public void channel(boolean up) {
-		channel += 1;
+		channel(channel + (up? 1: -1));
+		
 	}
 	
 	
 	public void volume(int volume) {
 		if(!power) return;
 		
-		if(volume > 100) {
-			volume = 0;
-		}else if(volume < 0){
+		if(volume < 0) {
 			volume = 100;
+		} else if(volume > 100){
+			volume = 0;
 		}
+		
 		this.volume = volume;
 	}
 	
 	public void volume(boolean up) {
-		
+		volume(volume + (up ? 1 : -1));
 	}
 	
 	public boolean isPower() {
