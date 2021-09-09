@@ -16,19 +16,17 @@ public class Prob03 {
 		
 		
 	}
-	
-	
+	 public static void replaceSpace(char a[]) {
+	      for(int i=0; i<a.length; i++) {
+	         if(a[i] == ' ') {
+	            a[i] = ',';
+	         }
+	      }
+	   }
 	static void printCharArray(char[] c) {
 		System.out.println(c);
-		
 	}
-	
-	static void replaceSpace(char[] c) {
-		String tostr = String.valueOf(c);
-		tostr = tostr.replaceAll(" ", ",");
-		System.out.println(tostr);
-		
-		}
+
 		
 	}
 	

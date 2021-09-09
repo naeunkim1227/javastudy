@@ -9,9 +9,21 @@ public class GoodsApp {
 		goods.setPrice(2000);
 		goods.setCountStock(10);
 		goods.setCountSold(20);
+		goods.showInfo();
 		
-		System.out.println(goods.getCountSold());
-		System.out.println(goods.getCountStock());
+		System.out.println(Goods.CountOfGoods);
+		
+		
+		Goods goods2 = new Goods();
+		Goods goods3 = new Goods();
+		
+		String s = "콜라 100 20";
+		String[] tokens = s.split(" ");
+		for(String ss : tokens) {
+			System.out.println(ss);
+		}
+		
+		
 		
 	}
 

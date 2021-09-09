@@ -18,6 +18,12 @@ public class Prob04 {
 			System.out.println(a[i]);
 		}
 		
+		for(int i=0;i<leng;i++) {
+			char a[] = new char[leng];
+			a[i] = str.substring(0, str.length()).charAt(i);
+			System.out.print(a[i]);
+		}
+		
 		
 		return null;
 	}

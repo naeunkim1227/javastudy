@@ -3,11 +3,16 @@ package chapter03;
 public class Goods {
 	
 	
-	private static int totalCount = 0;
+	static int CountOfGoods = 0;
 	private String name;
 	private int price;
 	private int countStock;
 	private int countSold;
+	
+	public Goods() {
+		CountOfGoods = CountOfGoods+1;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -33,7 +38,13 @@ public class Goods {
 		this.countSold = countSold;
 	}
 	
-	
+	public void showInfo() {
+		System.out.println("name: " + name 
+				+ ", price : " + price + 
+				",countStock : " + countStock 
+				+ ",countSold : " + countSold);
+		
+	}
 	
 	
 }
