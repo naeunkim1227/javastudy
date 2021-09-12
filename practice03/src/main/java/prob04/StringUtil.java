@@ -1,13 +1,13 @@
 package prob04;
 
 public class StringUtil {
-	public static String cocatenate(String[] str) {
-		
-		StringBuilder add = null;
+	public static String concatenate(String[] str) {
+
+		String plus = "";
 		for(int i=0;i<str.length;i++) {
-			add.append(str[i]);
+			plus += str[i];
 		}
 		
-		return add.toString();
+		return plus;
 	}
 }
