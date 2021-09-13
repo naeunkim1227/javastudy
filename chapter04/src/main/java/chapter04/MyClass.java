@@ -3,15 +3,15 @@ package chapter04;
 public class MyClass {
 	private static MyClass instance = null;
 	
-	
-	private MyClass (){
+	private MyClass() {
 	}
 	
 	// Singleton + Factory Method
-	public void MyClass getInstance() {
-		if(instance == null) {instance = new MyClass();}
-	
+	public static MyClass getInstance() {
+		if(instance == null) { 
+			instance = new MyClass();
+		}
+		
 		return instance;
 	}
-
 }
