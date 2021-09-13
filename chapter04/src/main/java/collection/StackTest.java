@@ -17,7 +17,16 @@ public class StackTest {
 		}
 		
 		//비어있는 경우에는 예외발생
-		s.pop();
+		//s.pop();
+		
+		s.push("둘리");
+		s.push("마이콜");
+		s.push("도우너");
+		
+		System.out.println(s.pop());
+		System.out.println(s.peek());
+		System.out.println(s.pop());
+		
 		
 		
 	}
