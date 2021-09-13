@@ -10,8 +10,7 @@ public class Prob3 {
 		
 		System.out.print("숫자를 입력하세요 : ");
 		/* 코드 작성 */
-		int a = 0;
-		a = scanner.nextInt();
+		int a = scanner.nextInt();
 		int sum = 0;
 		
 		if((a % 2)!=0){
