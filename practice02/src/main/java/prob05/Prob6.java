@@ -22,6 +22,7 @@ static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
 		while(true) {
 			initProperties();
 			randNum = generateRandomInteger();
+			System.out.println(randNum);
 			System.out.println("수를 결정하였습니다. 맞추어 보세요");
 			
 			if(!answerLoop()) {

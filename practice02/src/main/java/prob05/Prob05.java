@@ -19,24 +19,26 @@ public class Prob05 {
 		Scanner scanner = new Scanner( System.in );
 		start = 1;
 		end = 100;
+		
 		System.out.println("수를 결정하였습니다. 맞추어보세요");
+		randomNum = generaterannum();
+		
 		while( true ) {
 			
-			int randnum = generaterannum();
-			
+			System.out.println(randomNum);
 			System.out.println(start + "-" + end);
 			
 			int userAnswer = Integer.parseInt(bufferReader.readLine());
 			
-			if(randnum == userAnswer) {
+			if(randomNum == userAnswer) {
 				System.out.println("맞았습니다.");
 				newGame();
 			}else {
-				if(userAnswer > randnum) {
+				if(userAnswer > randomNum) {
 					System.out.println("더 낮게");
 					end = userAnswer < end? userAnswer:end;
 					count++;
-				}else if(userAnswer < randnum) {
+				}else if(userAnswer < randomNum) {
 					System.out.println("더 높게");
 					start = userAnswer > start? userAnswer:start; 
 					count++;
