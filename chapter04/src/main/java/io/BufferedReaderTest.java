@@ -1,3 +1,5 @@
+package io;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -20,10 +22,8 @@ public class BufferedReaderTest {
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("File Not Found:" + e);
-			e.printStackTrace();
 		}catch (IOException e) {
 			System.out.println("error:" + e);
-			e.printStackTrace();
 		}finally {
 			try {
 				if(br != null) {
