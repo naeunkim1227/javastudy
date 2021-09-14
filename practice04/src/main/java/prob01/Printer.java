@@ -1,6 +1,7 @@
 package prob01;
 
 public class Printer {
+	/*
 	
 	public void println(int i){
 		System.out.println(i);
@@ -22,7 +23,23 @@ public class Printer {
 		
 	}
 	
+	*/
+	
+	//제네릭 메소드로 해결하는 방법
+	public <T> void println(T t) {
+		System.out.println(t);
+	}
+	public <T> void println(T... ts) {
+		for(T t : ts) {
+			System.out.println(t);
+		}
+	}
 
-
-
+	public int sum(Integer... nums) {
+		int sum = 0;
+		for(Integer i :nums) {
+			sum += i;
+		}
+		return sum;
+	}
 }
