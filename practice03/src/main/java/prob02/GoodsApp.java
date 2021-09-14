@@ -11,22 +11,29 @@ public class GoodsApp {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("입력하세요");
 		
-		String line = scanner.nextLine();
-		String[] tokens = line.split(" ");
+		Goods[] goods = new Goods[COUNT_GOODS];
+
 		
-		List<String> lineadd = null;
 		
-		System.out.println(tokens.length);
-		for(int i=0;i<tokens.length;i++) {
+		for(int i=0;i<COUNT_GOODS;i++) {
+			String line = scanner.nextLine();
+			String[] tokens = line.split(" ");
+			String drink = tokens[0];
+			int money = Integer.parseInt(tokens[1]);
+			int count = Integer.parseInt(tokens[2]);
 			
+			Goods good = new Goods();
+			good.setCount(count);
+			good.setDrink(drink);
+			good.setMoney(money);
+			
+			goods[i] = good;
 			
 		}
 		
-		
-		Goods[] goods = new Goods[COUNT_GOODS];
-
-		// 상품 입력
-		Goods good = new Goods();
+		for(Goods g:goods) {
+			System.out.println(g.getDrink() + "(가격:" + g.getMoney() + "원)이 " + g.getCount() +"개 입고 되었습니다." );
+		}
 		
 		// 상품 출력
 		
