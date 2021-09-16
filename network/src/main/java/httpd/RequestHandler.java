@@ -1,11 +1,13 @@
 package httpd;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.nio.file.Files;
 
 public class RequestHandler extends Thread {
 	private Socket socket;
@@ -14,6 +16,9 @@ public class RequestHandler extends Thread {
 		this.socket = socket;
 	}
 	
+	private static final String DOCUMENT_ROOT = "./webapp";
+	   
+	   
 	@Override
 	public void run() {
 		try {
@@ -84,7 +89,7 @@ public class RequestHandler extends Thread {
 		}			
 	}
 
-	private void responseStaticResource(OutputStream outputStream, String url, String protocol) {
+	private void responseStaticResource(OutputStream outputStream, String url, String protocol) throws IOException {
 		
 		//welcome file set
 		if("/".equals(url)) {
@@ -92,6 +97,18 @@ public class RequestHandler extends Thread {
 		}
 		
 		File file = new File(DOCUMENT_ROOT + url);
+		if(!file.exists()) {
+			//response400Error(outputStream, url, protocol);
+			return;
+		}
+		
+		//nio
+		byte[] body = Files.readAllBytes(file.toPath());
+		String contentType = Files.probeContentType(file.toPath());
+		outputStream.write( (protocol + " 200 OK\n").getBytes( "UTF-8" ) );
+		outputStream.write(("Content-Type:"  + contentType + "; charset=utf-8\n").getBytes( "UTF-8" ));
+		outputStream.write( "\n".getBytes() );
+		outputStream.write(body);
 		
 	}
 
