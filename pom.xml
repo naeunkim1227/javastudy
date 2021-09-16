@@ -39,5 +39,6 @@
   	<module>practice05</module>
   	<module>finaltest</module>
   	<module>network</module>
+  	<module>chatting</module>
   </modules>
 </project>

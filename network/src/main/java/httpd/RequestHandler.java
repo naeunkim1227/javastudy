@@ -60,8 +60,10 @@ public class RequestHandler extends Thread {
 				consoleLog( "request: "+ tokens[1]);
 				responseStaticResource(outputStream, tokens[1], tokens[2]);
 			}else {
+				System.out.println(tokens[0]);
 				//methods: POST, PUT, DELETE, HEAD, CONNECT
 				//SimpleHttpserver 에서는 무시(400 Bad Request 처리)
+				
 				//response400Error(outputStream, tokens[1], tokens[2]);
 				
 			}
@@ -98,6 +100,7 @@ public class RequestHandler extends Thread {
 		
 		File file = new File(DOCUMENT_ROOT + url);
 		if(!file.exists()) {
+			System.out.println("file not exists");
 			//response400Error(outputStream, url, protocol);
 			return;
 		}
