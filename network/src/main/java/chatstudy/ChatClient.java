@@ -6,54 +6,97 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.ConnectException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class ChatClient {
+	private static final String SERVER_IP = "127.0.0.1";
+	private static final int PORT = ChatServer.PORT;
 
 	public static void main(String[] args) {
-		
-		try {
-		//1.키보드 연결
-		Scanner scanner = new Scanner(System.in);
-		PrintWriter printWriter = null;
-		
-		//5.join 프로토콜
-		System.out.println("닉네임>>");
-		String nickName = scanner.nextLine();
-		printWriter.println("join :" + nickName);
-		printWriter.flush();
-		
-		//2.socket 생성
-		Socket socket = new Socket();
-		
-		//3.연결
-		
-		//4.reader/writer 생성
-		BufferedReader reader =  new BufferedReader(new InputStreamReader(socket.getInputStream(),"UTF-8"));
-		PrintWriter writer = new PrintWriter(new OutputStreamWriter(null))
-		//6.chatClientReceiveThread 시작
-		
-		//ChatClientThread.start();
 
-		//7. 키보드 입력 처리
-		while(true) {
-			System.out.println(">>");
-			String input = scanner.nextLine();
+		Scanner scanner = null;
+		Socket socket = null;
+		PrintWriter writer = null;
+		
+
+		try {
+
+			scanner = new Scanner(System.in);
+
+			// 2.socket 생성
+			socket = new Socket();
+
+			// 3.연결
+			socket.connect(new InetSocketAddress(SERVER_IP,PORT));
+
+			// 4.reader/writer 생성
+			BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
+			writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
 			
-			if("quit".equals(input) == true) {
-				//8. quit 프로토콜 처리
-				break;
-			}else {
-				//9. 메세지처리
+			//5.join 프로토콜 생성
+			writer.println("join:" + join());
+			
+			
+			// 6.chatClientReceiveThread 시작
+			new ChatClientThread(socket).start();
+
+			// 7. 키보드 입력 처리
+			while (true) {
+				
+				System.out.println(">>");
+				String input = scanner.nextLine();
+
+				if ("quit".equals(input) == true) {
+					// 8. quit 프로토콜 처리
+					break;
+				} else {
+					// 9. 메세지처리
+					System.out.println("메세지" + input);
+				}
+			}
+
+		} catch (ConnectException ex) {
+			ChatServer.log("error:" + ex);
+		} catch (IOException ex) {
+			ChatServer.log("error:" + ex);
+		} finally {
+			try {
+				if (scanner != null) {
+					scanner.close();
+				}
+				if (socket != null && socket.isClosed() == false) {
+					socket.close();
+				}
+			} catch (IOException e) {
+				ChatServer.log("error:" + e);
 			}
 		}
-		
-	}catch (IOException ex) {
-		ChatServer.log("error:" + ex);
-	}finally {
-		
+
 	}
 
-}
+	public static String join() {
+
+			// 1.키보드 연결
+			Scanner scanner = new Scanner(System.in);
+			String nickName;
+			
+			while(true) {
+			System.out.println("닉네임을 입력해주세요.");
+			System.out.print("닉네임>>");
+			nickName = scanner.nextLine();
+
+			if (nickName.equals("")) {
+				System.out.println("공백은 불가능합니다.");
+				break;
+			}
+			
+			}
+			
+			System.out.println(nickName + "으로 설정합니다.");
+
+			return nickName;
+	}
 }

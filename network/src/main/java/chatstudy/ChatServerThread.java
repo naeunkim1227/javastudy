@@ -75,8 +75,6 @@ public class ChatServerThread extends Thread{
 			
 			
 			
-			
-			
 		}catch (UnsupportedEncodingException e) {
 			ChatServer.log("error" + e); 
 		}catch (IOException e) {
@@ -147,6 +145,11 @@ public class ChatServerThread extends Thread{
 
 	private void removeWriter(Writer writer) {
 		//잘 구현해보기
+		synchronized (writer) {
+			writer.
+		}
+		
+		
 	}
 	
 	

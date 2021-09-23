@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChatServer {
-	private static final int PORT = 6000;
+	static final int PORT = 9999;
 	List<Writer> listwriters = new ArrayList<Writer>();
 	
 	public static void main(String[] args) {
@@ -30,9 +30,6 @@ public class ChatServer {
 				new ChatServerThread(socket, listwriters).start();
 				//new ChatServerThread(socket).start();
 			}
-			
-	
-			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
