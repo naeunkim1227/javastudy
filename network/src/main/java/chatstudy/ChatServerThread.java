@@ -126,13 +126,12 @@ public class ChatServerThread extends Thread{
 				printWriter.flush();
 			}
 			
-			
 		}
 	}
 	
 	private void domessage(String message) {
 		//잘 구현해보기
-		
+		broadcast(message);
 		
 	}
 	
@@ -145,8 +144,8 @@ public class ChatServerThread extends Thread{
 
 	private void removeWriter(Writer writer) {
 		//잘 구현해보기
-		synchronized (writer) {
-			writer.
+		synchronized(listWriters) {
+			listWriters.remove(writer);
 		}
 		
 		

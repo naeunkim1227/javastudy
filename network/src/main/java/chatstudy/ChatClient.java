@@ -23,7 +23,6 @@ public class ChatClient {
 		
 
 		try {
-
 			scanner = new Scanner(System.in);
 
 			// 2.socket 생성
