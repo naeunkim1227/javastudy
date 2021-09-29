@@ -5,25 +5,25 @@ import java.util.Arrays;
 public class Prob5 {
 
 	public static void main(String[] args) {
-		 String[] arr = new String[100];
-		 String[] arr2 = new String[100];
-		 float d[] = new float[100];
-		int i = 0;
+		for (int i = 1; i < 100; i++) {
+			float a = i / 10f;
+			String str = a + "";
+
+			String ten = str.substring(0, 1);
+			String one = str.substring(2, 3);
+			StringBuilder clap = new StringBuilder();
+			
+			
+			if(one.contains("3") || one.contains("6") || one.contains("9")) clap.append("짝");
+			
+			if (ten.contains("3") || ten.contains("6") || ten.contains("9")) clap.append("짝");
+			
+			if (clap.length() != 0) {
+				System.out.print(i);
+			System.out.println(" " + clap);
+			}
 		
-	 for(i=0;i<100;i++){
-		 
-		d[i] = i/10f;
-		arr[i] = d[i] + " ";
-		
-		System.out.println(arr[i].charAt(i));
-		 
-		 /*
-		 if(arr[i].contains("3") || arr[i].contains("6") || arr[i].contains("9")) {
-			 System.out.println(i + " 짝");
-		 }*/
-	 
-	 }
-	 
-	 
-	}
+		}
+
+	}// main
 }

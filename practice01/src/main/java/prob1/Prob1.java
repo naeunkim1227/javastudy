@@ -9,8 +9,7 @@ public class Prob1 {
 		/* 코드 작성 */
 		System.out.print("수를 입력하시오 : ");
 		
-		int a = 0;
-		a = scanner.nextInt();
+		int a = scanner.nextInt();
 		
 		if((a % 3)==0) System.out.println("3의 배수입니다."); 
 		

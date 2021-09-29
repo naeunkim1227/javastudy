@@ -22,7 +22,7 @@ public class ColorPoint extends Point {
 
 	@Override
 	public void show() {
-		System.out.println("점[x= " + getX() + ", y=" + getY() + ", color=" + color + "]을 그렸습니다.");
+		System.out.println("점[x=" + getX() + ", y=" + getY() + ", color=" + color + "]을 그렸습니다.");
 
 	}
 	
