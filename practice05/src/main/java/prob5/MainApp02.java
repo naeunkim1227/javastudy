@@ -1,5 +1,5 @@
 package prob5;
-
+/*
 public class MainApp02 {
 
 	public static void main(String[] args) {
@@ -31,3 +31,4 @@ public class MainApp02 {
 	}
 
 }
+*/

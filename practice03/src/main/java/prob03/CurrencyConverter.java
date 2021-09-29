@@ -1,5 +1,5 @@
 package prob03;
-
+/*
 public class CurrencyConverter {
 	private static double rate;
 	
@@ -16,3 +16,4 @@ public class CurrencyConverter {
 	}
 	
 }
+*/

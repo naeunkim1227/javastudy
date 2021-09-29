@@ -1,5 +1,5 @@
 package prob03;
-
+/*
 public class CurrencyConverterTest {
 
 	public static void main(String[] args) {
@@ -15,3 +15,4 @@ public class CurrencyConverterTest {
 	}
 
 }
+*/
