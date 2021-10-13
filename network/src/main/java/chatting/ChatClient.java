@@ -9,7 +9,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
-import chat.ChatServer;
+import testc.ChatServer;
 
 public class ChatClient {
 

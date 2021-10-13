@@ -1,4 +1,4 @@
-package chat;
+package testc;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,8 +16,8 @@ import java.util.List;
 
 import org.omg.CORBA.Request;
 
-import chat.ChatServer;
 import echo.EchoServer;
+import testc.ChatServer;
 
 public class ChatServerThread extends Thread{
 	

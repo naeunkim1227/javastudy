@@ -1,4 +1,4 @@
-package chat;
+package testc;
 
 import java.io.BufferedReader;
 import java.io.IOException;
